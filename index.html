@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LETS DO THIS!!!!!!!!!!!</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -20,15 +19,45 @@
 </head>
 
 <body>
-    <div class="jumbotron">
-        <h1 class="display-4">Plan and Go!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-            featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </div>
+    <section class="hero is-medium is-primary is-bold has-backgroud-green">
+        <div>
+            <div class="hero-head">
+                <div class="container is-grouped-centered">
+                    <h1 class="title is-bold">
+                        Plan and Go!
+                    </h1>
+                    <h2 class="subtitle is-small">
+                        Pick a place to visit below and see local places to stay based on price and reviews
+                    </h2>
+                </div>
+                <div class="level">
+                    <input class="input is-rounded is-loading" type="text" placeholder="Where would you like to go?">
+                    <button class="button is-rounded">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <div class="container">
+        <div class="columns">
+            <div class="column is-8">
+                <figure class="image is-800x200">
+                    <img id="map" src="https://demonssouls.wiki.fextralife.com/file/Dark-Souls-3/map_placeholder.gif" />
+                </figure>
+            </div class="title is-ancestor">
+            <div class="title is-4 is-vertical">
+                <div class="title is-child box">
+                    <div class="content">
+                        <p class="title">Search Results</p>
+                        <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure deserunt
+                            nostrum aliquid quas pariatur rem quibusdam perspiciatis nulla cupiditate, quidem ut odit
+                            eligendi non minus sapiente id et voluptate delectus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
