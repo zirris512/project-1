@@ -15,15 +15,24 @@ function placesAPI(placeSearch) {
 
         let results = response;
 
+        map.panTo(new L.LatLng(parseFloat(results[0].lat), parseFloat(results[0].lon)));
+
         for(let i = 0; i < results.length; i++) {
-            var attractionName = results[i].display_name.split(",",1)[0];
+            var longitude = parseFloat(results[i].lon);
+            var latitude = parseFloat(results[i].lat);
+            var displayName = results[i].display_name;
+            var attractionName = displayName.split(",",1)[0];
             var searchDiv = $("<div>");
-            var p = $("<p>").text((i+1) + ". " + attractionName);
+            var p1 = $("<p>").text((i+1) + ". " + attractionName);
+            var p2 = $("<p>").text(displayName.substring(displayName.indexOf(",")+2));
             var btn = $("<button>").text("Search Hotels");
             btn.attr("data-long", results[i].lon);
             btn.attr("data-lat", results[i].lat);
             btn.addClass("search-hotel");
-            searchDiv.append(p);
+            var marker = L.marker([latitude, longitude]).addTo(map);
+            marker.bindPopup(attractionName).openPopup();
+            searchDiv.append(p1);
+            searchDiv.append(p2);
             searchDiv.append(btn);
             $("#search-result").append(searchDiv);
         }
@@ -36,3 +45,29 @@ $("#search-attraction").on("click", function(event) {
     let placeSearch = $("#user-input").val().trim() + " attractions";
     placesAPI(placeSearch);
 })
+
+// API token goes here
+var key = '027f206e7e01f6';
+
+// Add layers that we need to the map
+var streets = L.tileLayer.Unwired({
+        key: key,
+        scheme: "streets"
+    });
+
+// Initialize the map
+var map = L.map('map', {
+        center: [51.505, -0.09], //map loads with this location as center
+        zoom: 12,
+        layers: [streets] // Show 'streets' by default
+});
+
+// Add the 'scale' control
+L.control.scale().addTo(map);
+
+// Add the 'layers' control
+L.control.layers({
+    "Streets": streets
+}).addTo(map);
+
+$(document).on("click", ".search-hotel", hotelSearch);
