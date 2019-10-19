@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LETS DO THIS!!!!!!!!!!!</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bulma.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="https://tiles.unwiredmaps.com/js/leaflet-unwired.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -31,8 +34,8 @@
                     </h2>
                 </div>
                 <div class="level">
-                    <input class="input is-rounded is-loading" type="text" placeholder="Where would you like to go?">
-                    <button class="button is-rounded">Search</button>
+                    <input class="input is-rounded is-loading" id="user-input" type="text" placeholder="Where would you like to go?">
+                    <button class="button is-rounded" id="search-attraction">Search</button>
                 </div>
             </div>
         </div>
@@ -41,15 +44,13 @@
     <div class="container">
         <div class="columns">
             <div class="column is-8">
-                <figure class="image is-800x200">
-                    <img id="map" src="https://demonssouls.wiki.fextralife.com/file/Dark-Souls-3/map_placeholder.gif" />
-                </figure>
-            </div class="title is-ancestor">
+                <div id="map"></div>
+            </div>
             <div class="title is-4 is-vertical">
                 <div class="title is-child box">
                     <div class="content">
                         <p class="title">Search Results</p>
-                        <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure deserunt
+                        <p class="subtitle" id="search-result">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure deserunt
                             nostrum aliquid quas pariatur rem quibusdam perspiciatis nulla cupiditate, quidem ut odit
                             eligendi non minus sapiente id et voluptate delectus.</p>
                     </div>
