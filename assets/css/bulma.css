@@ -1,0 +1,19 @@
+#map {
+    height: 500px;
+    width: 500px;
+}
+
+.container {
+    top: 20px;
+}
+#search-result {
+    overflow: auto;
+    max-height: 560px;
+}
+#p1 {
+    color: Green;
+}
+#progress {
+    width: 250px;
+    height: 25xp;
+}

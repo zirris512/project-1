@@ -34,17 +34,20 @@ function placesAPI(placeSearch) {
             searchDiv.append(p1);
             searchDiv.append(p2);
             searchDiv.append(btn);
+            // trying to append a break line so its more clear on the search hotel.
+            //$(searchDiv).append("<br>"); 
             $("#search-result").append(searchDiv);
         }
     })
 }
-
 $("#search-attraction").on("click", function(event) {
     event.preventDefault();
 
     let placeSearch = $("#user-input").val().trim() + " attractions";
     placesAPI(placeSearch);
 })
+// Progress-bar call going here
+$()
 
 // API token goes here
 var key = '027f206e7e01f6';
