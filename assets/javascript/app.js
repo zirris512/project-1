@@ -112,11 +112,11 @@ function placeMarkerHotels () {
     let mLatitude = $(this).attr("data-lat");
 
     //Removes marker on button press if one already exists on map
-    if (marker) {
-        map.removeLayer(marker);
+    if (marker1) {
+        map.removeLayer(marker1);
     }
     //Creates marker at new location
-    marker = new L.marker([mLatitude, mLongitude], {icon: myIcon}).addTo(map);
+    marker1 = new L.marker([mLatitude, mLongitude], {icon: myIcon}).addTo(map);
 }
 
 //Function that handles the hotwire API call
@@ -146,7 +146,6 @@ function hotelSearch () {
 
         //Loop through API object and create new text on DOM
         for(let j = 0; j < results.length; j++) {
-            console.log(j);
             var hotelName = results[j].Headline.split(",",1)[0];
             var hotelSavings = "(Save: " + results[j].SavingsPercentage + "%)";
             var neighborhood = results[j].Neighborhood;
@@ -221,6 +220,8 @@ L.control.layers({
 
 //Marker variable initialization
 var marker;
+
+var marker1;
 
 //Click listener for dynamic hotel search button
 $(document).on("click", ".search-hotel", hotelSearch);
