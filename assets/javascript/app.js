@@ -1,3 +1,4 @@
+//Function for locationIQ API call
 function placesAPI(placeSearch) {
     $("#search-result").empty();
 
@@ -15,8 +16,10 @@ function placesAPI(placeSearch) {
 
         let results = response;
 
+        //Map method to pan to new location
         map.panTo(new L.LatLng(parseFloat(results[0].lat), parseFloat(results[0].lon)));
 
+        //Loop through API object and display results on DOM
         for(let i = 0; i < results.length; i++) {
             var displayName = results[i].display_name;
             var attractionName = displayName.split(",",1)[0];
@@ -40,8 +43,10 @@ function placesAPI(placeSearch) {
     })
 }
 
+//Function to place markers for attraction search
 function placeMarkerAttractions () {
 
+    //Set of variables to change marker appearance
     var myCustomColour = '#00FF00'
 
     const markerHtmlStyles = `
@@ -64,16 +69,22 @@ function placeMarkerAttractions () {
     html: `<span style="${markerHtmlStyles}" />`
     })
 
+    //Save longitude and latitude data to variables
     let mLongitude = $(this).attr("data-long");
     let mLatitude = $(this).attr("data-lat");
+
+    //Removes marker on button click if one already exists
     if (marker) {
         map.removeLayer(marker);
     }
+    //Creates new marker at new location
     marker = new L.marker([mLatitude, mLongitude], {icon: myIcon}).addTo(map);
 }
 
+//Function to place markers on hotel search
 function placeMarkerHotels () {
 
+    //Set of variables to change marker appearance
     var myCustomColour = '#FF0000'
 
     const markerHtmlStyles = `
@@ -96,22 +107,28 @@ function placeMarkerHotels () {
     html: `<span style="${markerHtmlStyles}" />`
     })
 
+    //Saves longitude and latitude data to variables
     let mLongitude = $(this).attr("data-long");
     let mLatitude = $(this).attr("data-lat");
 
+    //Removes marker on button press if one already exists on map
     if (marker) {
         map.removeLayer(marker);
     }
+    //Creates marker at new location
     marker = new L.marker([mLatitude, mLongitude], {icon: myIcon}).addTo(map);
 }
 
+//Function that handles the hotwire API call
 function hotelSearch () {
+    //Clear text already in place
     $("#search-result").text("");
     
     var destination = $(this).attr("data-lat") + "," + $(this).attr("data-long");
     var hotelAPI = "ja638mjk2ruvwf4mhhrrdcr5";
-    let queryURL = "http://api.hotwire.com/v1/deal/hotel?format=json&dest==" + destination + "&distance=*~20&apikey=" + hotelAPI + "&limit=10";
+    let queryURL = "https://api.hotwire.com/v1/deal/hotel?format=json&dest==" + destination + "&distance=*~20&apikey=" + hotelAPI + "&limit=10";
     
+    //Pan map to new location based on button press
     map.panTo(new L.LatLng($(this).attr("data-lat"), $(this).attr("data-long")));
     map.setZoom(12);
     
@@ -127,6 +144,7 @@ function hotelSearch () {
     
         let results = response.Result;
 
+        //Loop through API object and create new text on DOM
         for(let j = 0; j < results.length; j++) {
             console.log(j);
             var hotelName = results[j].Headline.split(",",1)[0];
@@ -150,15 +168,19 @@ function hotelSearch () {
     }
 )}
 
+//Search button click listener
 $("#search-attraction").on("click", function(event) {
     event.preventDefault();
 
+    //Takes user input and saves it to a variable with attractions added to search
     let placeSearch = $("#user-input").val().trim() + " attractions";
     placesAPI(placeSearch);
 
+    //Clears search bar
     $("#user-input").val("");
 })
 
+//Function to open hotwire page on deals button click
 function openHotelPage () {
     console.log($(this).attr("data-url"));
     window.location = $(this).attr("data-url");
@@ -188,12 +210,17 @@ L.control.layers({
     "Streets": streets
 }).addTo(map);
 
+//Marker variable initialization
 var marker;
 
+//Click listener for dynamic hotel search button
 $(document).on("click", ".search-hotel", hotelSearch);
 
+//Click listener for dynamic attractions marker button
 $(document).on("click", ".place-marker", placeMarkerAttractions);
 
+//Click listener for dynamic hotel marker button
 $(document).on("click", ".marker-hotel", placeMarkerHotels);
 
+//Click listener for dynamic hotwire deals button
 $(document).on("click", ".deals-button", openHotelPage);
