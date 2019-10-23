@@ -183,7 +183,15 @@ $("#search-attraction").on("click", function(event) {
 //Function to open hotwire page on deals button click
 function openHotelPage () {
     console.log($(this).attr("data-url"));
-    window.location = $(this).attr("data-url");
+    var win = window.open($(this).attr("data-url"), "_blank");
+
+    if (win) {
+        win.focus();
+    }
+
+    else {
+        alert("Please allow popups for this site");
+    }
 }
 
 // API token goes here
