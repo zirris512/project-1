@@ -180,6 +180,8 @@ $("#search-attraction").on("click", function(event) {
     //Clears search bar
     $("#user-input").val("");
 })
+// Progress-bar call going here
+$()
 
 //Function to open hotwire page on deals button click
 function openHotelPage () {

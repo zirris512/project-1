@@ -1,8 +1,24 @@
 #map {
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 600px;
 }
 
 .container {
     top: 20px;
+}
+#search-result {
+    overflow: auto;
+    max-height: 520px;
+}
+#p1 {
+    color: Green;
+}
+.percentage {
+    color: limegreen;
+}
+.title {
+    text-align: center;
+}
+.subtitle {
+    text-align: center;
 }

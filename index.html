@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html 5>
 <html lang="en">
 
 <head>
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="https://tiles.unwiredmaps.com/js/leaflet-unwired.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -22,25 +22,25 @@
 </head>
 
 <body>
-    <section class="hero is-medium is-primary is-bold has-backgroud-green">
-        <div>
-            <div class="hero-head">
-                <div class="container is-grouped-centered">
-                    <h1 class="title is-bold">
-                        Plan and Go!
-                    </h1>
-                    <h2 class="subtitle is-small">
-                        Pick a place to visit below and see local places to stay based on price and reviews
-                    </h2>
-                </div>
+    <section class="hero is-large is-primary is-bold has-backgroud-green">
+        <div class="hero-head">
+            <div class="head">
+                <h1 class="title is-bold is-size-1">
+                    Plan and Go!
+                </h1>
+                <h2 class="subtitle is-small is-size-4">
+                    Pick a place to visit below and find the best deals nearby!
+                </h2>
                 <div class="level">
-                    <input class="input is-rounded is-loading" id="user-input" type="text" placeholder="Where would you like to go?">
+                    <input class="input is-rounded is-loading" id="user-input" type="text"
+                        placeholder="Where would you like to go?">
                     <button class="button is-rounded" id="search-attraction">Search</button>
                 </div>
             </div>
+        <div class="progressbar">
+        </div>  
         </div>
     </section>
-
     <div class="container">
         <div class="columns">
             <div class="column is-8">
