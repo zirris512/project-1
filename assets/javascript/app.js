@@ -38,7 +38,7 @@ function placesAPI(placeSearch) {
             searchDiv.append(p1);
             searchDiv.append(p2);
             searchDiv.append(markerbtn ,btn);
-            $("#search-result").append(searchDiv);
+            $("#search-result").append(searchDiv, $("<hr>"));
         }
     })
 }
@@ -148,11 +148,12 @@ function hotelSearch () {
         for(let j = 0; j < results.length; j++) {
             console.log(j);
             var hotelName = results[j].Headline.split(",",1)[0];
+            var hotelSavings = "(Save: " + results[j].SavingsPercentage + "%)";
             var neighborhood = results[j].Neighborhood;
             var hotelPrice = "$" + parseInt(results[j].Price) + "/night";
             var hotelDiv = $("<div>");
             var pHotel = $("<p>").text(hotelName +": " + neighborhood);
-            var pPrice = $("<h3>").text(hotelPrice);
+            var pPrice = $("<h3>").html(hotelPrice + " " + "<span class=percentage>" + hotelSavings + "</span>");
             var hotelbtn = $("<button>").text("Search Deals");
             var markerbtn = $("<button>").text("Place Marker");
             markerbtn.attr("data-long", results[j].NeighborhoodLongitude);
@@ -163,7 +164,7 @@ function hotelSearch () {
             hotelDiv.append(pHotel);
             hotelDiv.append(pPrice);
             hotelDiv.append(markerbtn, hotelbtn);
-            $("#search-result").append(hotelDiv);
+            $("#search-result").append(hotelDiv, $("<hr>"));
         }
     }
 )}
