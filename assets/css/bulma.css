@@ -1,6 +1,6 @@
 #map {
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 600px;
 }
 
 .container {
@@ -8,12 +8,17 @@
 }
 #search-result {
     overflow: auto;
-    max-height: 560px;
+    max-height: 520px;
 }
 #p1 {
     color: Green;
 }
-#progress {
-    width: 250px;
-    height: 25xp;
+.percentage {
+    color: limegreen;
+}
+.title {
+    text-align: center;
+}
+.subtitle {
+    text-align: center;
 }
