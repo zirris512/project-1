@@ -1,6 +1,6 @@
 #map {
     height: 600px;
-    width: 600px;
+    width: 850px;
 }
 
 .container {
@@ -21,4 +21,13 @@
 }
 .subtitle {
     text-align: center;
+}
+.content {
+    
+}
+body {
+    background-image: url(https://img5.goodfon.com/original/1920x1080/c/13/materiki-karta-mira-mir-zemlia-kontinenty-seryi-fon.jpg?d=1);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
