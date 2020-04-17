@@ -11,6 +11,10 @@ Plan and Go is an app where users can look for attractions at a searched destina
 * LocationIQ
 * Leaflet
 
+## Links
+
+Deployed Page - ![https://zirris512.github.io/project-1/](https://zirris512.github.io/project-1/)
+
 ## Contributors
 
 - Brent Hubbard <https://github.com/brent-hub>
