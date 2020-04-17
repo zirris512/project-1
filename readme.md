@@ -25,4 +25,4 @@ Plan and Go is an app where users can look for attractions at a searched destina
 
 ## License & Copyright
 
-&copy; Brent Edwards
+&copy; Brent Edwards, Brent Hubbard
